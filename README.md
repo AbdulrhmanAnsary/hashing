@@ -2,9 +2,9 @@
 
 A C++ implementation of hash tables exploring different collision-resolution strategies and a reusable contract-based testing approach.
 
-##Implementations
+## Implementations
 
-###Separate Chaining
+### Separate Chaining
 
 - "BucketLinkedList"
 - "BucketVector"
@@ -55,10 +55,13 @@ The test suite covers behaviors such as:
 
 Some collision scenarios are implementation-dependent. A collision test is therefore not automatically treated as a universal requirement for every hashing strategy; the algorithm's mathematical constraints must be considered when defining the appropriate contract.
 
-##Testing Philosophy
+---
+
+## Testing Philosophy
 
 The testing workflow used in this project is:
 
+```
 DEFINE
 ↓
 IMAGINE USER USAGE
@@ -71,35 +74,44 @@ IMPLEMENT
 ↓
 RUN & FIX
 ↺
+```
 
 The contract defines what the implementation must guarantee, while each implementation remains free to choose how that behavior is achieved.
 
 Tests should not be weakened merely to accommodate an incorrect implementation, but neither should an artificial test condition be promoted into a universal contract when an algorithm legitimately cannot provide that behavior.
 
-Build & Run Tests
+---
+
+## Build & Run Tests
 
 Compile the contract tests with:
 
+```bash
 clang++ test_hashing_contract.cpp \
  -o test_hashing_contract.out \
  -lgtest \
  -lgtest_main \
  -pthread
+```
 
 Run:
 
+```bash
 ./test_hashing_contract.out
+```
 
 Project Structure
 
 The project is organized around the hashing implementations and their shared testing infrastructure.
 
+```
 hashing/
 ├── hashing_by_separate_chaining/
 ├── hashing_by_open_addressing/
 ├── math_utilities/
 ├── common/
 └── tests/
+```
 
 The exact structure may evolve as the project develops.
 
