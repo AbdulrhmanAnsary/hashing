@@ -24,7 +24,7 @@ steps:
 
   - name: Build contract tests
     run: |
-      clang++ tests/contracts/test_hashing_contract.cpp \
+      clang++ tests/contract/test_hashing_contract.cpp \
         -o test_hashing_contract.out \
         -lgtest \
         -lgtest_main \
