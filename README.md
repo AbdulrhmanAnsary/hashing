@@ -1,4 +1,4 @@
-#Hashing
+# Hashing
 
 A C++ implementation of hash tables exploring different collision-resolution strategies and a reusable contract-based testing approach.
 
@@ -9,13 +9,15 @@ A C++ implementation of hash tables exploring different collision-resolution str
 - "BucketLinkedList"
 - "BucketVector"
 
-###Open Addressing
+### Open Addressing
 
 - Linear Probing
 - Quadratic Probing
 - Double Hashing
 
-##Features
+---
+
+## Features
 
 - Generic key/value types
 - Configurable hash functions
@@ -27,7 +29,9 @@ A C++ implementation of hash tables exploring different collision-resolution str
 - Contract tests shared across implementations
 - Deterministic collision testing
 
-##Testing
+---
+
+## Testing
 
 The project uses Google Test and follows a contract-testing approach.
 
@@ -56,17 +60,17 @@ Some collision scenarios are implementation-dependent. A collision test is there
 The testing workflow used in this project is:
 
 DEFINE
-   ↓
+↓
 IMAGINE USER USAGE
-   ↓
+↓
 IDENTIFY BEHAVIORS
-   ↓
+↓
 WRITE RELEVANT TESTS
-   ↓
+↓
 IMPLEMENT
-   ↓
+↓
 RUN & FIX
-   ↺
+↺
 
 The contract defines what the implementation must guarantee, while each implementation remains free to choose how that behavior is achieved.
 
@@ -77,10 +81,10 @@ Build & Run Tests
 Compile the contract tests with:
 
 clang++ test_hashing_contract.cpp \
-    -o test_hashing_contract.out \
-    -lgtest \
-    -lgtest_main \
-    -pthread
+ -o test_hashing_contract.out \
+ -lgtest \
+ -lgtest_main \
+ -pthread
 
 Run:
 
@@ -99,7 +103,9 @@ hashing/
 
 The exact structure may evolve as the project develops.
 
-##Design Goal
+---
+
+## Design Goal
 
 This project is primarily educational.
 
@@ -115,11 +121,15 @@ The goal is not simply to implement hash tables, but to explore:
 - Debugging and failure analysis
 - Software engineering practices
 
-##Status
+---
+
+## Status
 
 The educational implementation is considered complete.
 
 Further development is not required for the project's original learning objectives.
+
+---
 
 ## 🤝 Contributing
 
@@ -133,9 +143,13 @@ If you have a suggestion that would make this better, please fork the repo and c
 4. Push to the Branch (git push origin feature/AmazingFeature)
 5. Open a Pull Request
 
+---
+
 ## 📜 License
 
 This project is licensed under the MIT License. See the [LICENSE](/LICENSE) file for details.
+
+---
 
 ## 📩 Contact
 
