@@ -1,115 +1,252 @@
-# 🧭 Hashing
+# Engineering Method
 
-> Project description
+This project follows the
+[TDD Imagine Usage Method](./TDD-Imagine-Usage-Method.md).
 
-Apply hashing and collision handling using separate chaining and open addressing
+This document defines the engineering methodology used to
+design, test, implement, evaluate, and evolve the project.
 
-## 🎯 Vision
-
-> Why does this project exist?
-
-- Problem: how to retrieve element using the index in o(1) time
-- Target user: data structures students
-- Core value: learn hashing and collision handling
-- Definition of Final Success: make a hash table that can handle any count and type of items with a load factor equals 0.75 and the ability to handle collisions using separate chaining or open addressing as the user decide and a hash function that can reduce the collisions as it possible using the mathematical equations
+For the current state and execution of this project, see this
+dashboard.
 
 ---
 
-## 🧱 MVP (Minimum Viable Product)
+# Project Dashboard
 
-### Hash Functions:
+| Property           | Value           |
+| ------------------ | --------------- |
+| Project            | Hashing         |
+| Status             | In Progress     |
+| Estimated Effort   | 34h             |
+| Daily Allocation   | 2h/day          |
+| Estimated Duration | 17 working days |
+| Actual Effort      | ...             |
+| Estimate Variance  | ...             |
+| Started            | 20-May-2026     |
+| Completed          | ...             |
+
+---
+
+# 📌 Project
+
+## Name
+
+Hashing
+
+## Version
+
+v0.1.0
+
+## Problem
+
+Efficiently retrieve values by key in expected **O(1)** time while handling collisions correctly.
+
+## Target Users
+
+- Data Structures students.
+- C++ learners.
+- Developers interested in hash table internals.
+
+## Core Value
+
+Learn and implement hashing from scratch while building a reusable and extensible library.
+
+## Definition of Done
+
+- [ ] All features implemented.
+- [ ] Tests added.
+- [ ] All tests passing.
+- [ ] Documentation updated.
+- [ ] No compiler warnings.
+- [ ] Code formatted.
+- [ ] Requirements satisfied.
+- [ ] Ready to merge.
+
+---
+
+# ⚙ Requirements
+
+## Functional Requirements
+
+- Store key-value pairs.
+- Generic key and value types.
+- Insert, remove, and search operations.
+- Automatic resizing.
+- Configurable collision strategy.
+
+## Non-Functional Requirements
+
+- Expected O(1) average complexity.
+- Memory safe.
+- Easy to extend.
+- Modern C++ style.
+- High test coverage.
+
+## Constraints
+
+- C++ templates only.
+- No memory leaks.
+- Collision strategy must be replaceable.
+- Load factor threshold = 0.75.
+
+---
+
+# 👤 User Flow
+
+1. Include the hashing library.
+2. Create a hash table with the desired key and value types.
+3. Select the collision handling strategy.
+4. Insert, search, and remove elements.
+
+---
+
+# 🏗 Architecture
+
+## High-Level Design
+
+The hash table delegates collision handling to interchangeable strategies, allowing the implementation to remain modular and extensible.
+
+## Main Components
+
+- Hash Table
+- Hash Function
+- Collision Strategy
+- Rehash Manager
+- insert, remove, lookup and hash table state function
+
+## Project Structure
+
+```
+hashing_by_open_addressing/
+hashing_by_separate_chaining/
+tests/
+```
+
+---
+
+# 🚀 MVP (Minimum Viable Product)
+
+## Core Features
 
 - insert()
 - remove()
 - find()
+- contains()
 - isEmpty()
 - size()
 - capacity()
-- loadFactor()
+- getLoadFactor() maintained at 0.75
+- Generic template implementation.
+- Automatic rehashing.
 
-### collision handling:
+## Collision Handling
 
-**separate chaining:**
+### Separate Chaining
 
-- linked list
+- [ ] Linked List
 
-**open addressing:**
+### Open Addressing
 
-- liner probing
-- quadratic probing
-- double hashing
-
----
-
-## 👤 User Flow
-
-1. User import hashing in his project
-2. user defined object from hashing with any type with the ability to specify the hash table size
-3. user used one or more from hashing function like insert or remove
-4. hashing can retrieval items in o(1) and handle collisions
+- [ ] Linear Probing
+- [ ] Quadratic Probing
+- [ ] Double Hashing
 
 ---
 
-## 🧠 Architecture (High-Level Design)
+# Workflow
 
-### Diagram
+## 📥 Backlog
 
-C:\Users\Abdulrhman\OneDrive\المستندات\hashing.drawio
+- [ ] Open Addressing Collision Handling:
+  1. Linear Hashing
+  2. Quadratic Probing
+  3. Double Hashing
 
-### Key Decisions
+- [ ] Integrity:
+  1. EXPECT_LOAD_FACTOR
+  2. EXPECT_CAPACITY
+  3. EXPECT_REHASH
+  4. EXPECT_BUCKET_COUNT
 
-- Why this design? because every thing is independent and the user has the freedom to customize "hashing" from any point he want
-- Trade-offs:
+## 📅 Sprint Backlog [Week]
+
+### Goal
+
+Build a complete TDD test suite before implementing production code.
+
+### Tasks
+
+- finish test hashing contract:
+
+## 🚧 In Progress
+
+- [ ] Contract Test:
+  1. Rehashing
+  2. Duplicate Key Handling
+  3. Exceptions
+  4. Stress Test
+
+- [ ] Rehash() and reserve()
+- [ ] getNextPrimeCapacity
+- [ ] remove() probing
+
+## 🐞 Bugs
+
+- [ ]
+
+## 👀 Review And Testing
+
+- [ ]
+
+## ✅ Done
+
+- [x] Project structure
+- [x] Initial architecture
+- [x] Separate Chaining: loadFactor()
+
+- [x] Table State:
+  1. check table state
+  2. EXPECT_TABLE_EMPTY
+  3. EXPECT_TABLE_NOT_EMPTY
+  4. EXPECT_TABLE_SIZE
+
+- [x] Lookup:
+  1. EXPECT_TABLE_CONTAINS
+  2. EXPECT_TABLE_NOT_CONTAINS
+
+- [ ] Contract Test:
 
 ---
 
-## 🏃 Sprint Backlog ['Week']
+# 📚 References
 
-- write the project interfaces and classes
-- write the implementation for the project interfaces and classes
-
----
-
-## 🔄 Sprint Progress
+- cppreference
+- Introduction to Algorithms (CLRS)
+- OpenDSA Hash Tables
 
 ---
 
-## 📍 Current Focus (To Do)
+# 💡 Ideas
 
-> If there are more than two tasks here, you are probably multitasking too much.
-
-- [ ] write tests that has the ability to test the normal, edge and error cases for the entire project (TDD benefits)
-
-### Definition of Done
-
-when that exists a tests for linear_probing, quadratic_probing, double_hashing and hashinh_by_separate_chaining
+- Visualize collision distribution.
+- Support custom allocators.
+- Custom hash functions.
+- Iterator support.
 
 ---
 
-## 📊 Done
+# 🧠 Decisions Log
 
-...
+## YYYY-MM-DD
 
----
+### Decision
 
-## 🧩 Out of Scope
+>
 
-> Future ideas and features.
+### Reason
 
-- 'Feature Idea 1'
-- 'Feature Idea 2'
-- 'Performance Improvements'
+>
 
----
+### Alternatives
 
-## 🧪 Review / Test
-
-...
-
----
-
-## 🧠 Decisions Log
-
-- 'Decision and reason'
-
----
+>

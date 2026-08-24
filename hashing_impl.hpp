@@ -21,7 +21,7 @@ public:
   virtual bool isEmpty() const = 0;
   virtual std::size_t size() const = 0;
   virtual std::size_t capacity() const = 0;
-  virtual std::size_t loadFactor() const = 0;
+  virtual double loadFactor() const = 0;
 
   const Value &operator[](Key key);
 };
@@ -63,7 +63,7 @@ std::size_t Hashing<Key, Value, HashFunction>::capacity() const {
 }
 
 template <class Key, class Value, class HashFunction>
-std::size_t Hashing<Key, Value, HashFunction>::loadFactor() const {
+double Hashing<Key, Value, HashFunction>::loadFactor() const {
   return capacity() == 0 ? 0 : (elementCount * 100) / capacity();
 }
 
