@@ -1,0 +1,35 @@
+name: Tests
+
+on:
+push:
+branches:
+  - main
+  - '**'
+pull_request:
+
+jobs:
+test:
+runs-on: ubuntu-latest
+
+steps:
+  - name: Checkout repository
+    uses: actions/checkout@v4
+
+  - name: Install dependencies
+    run: |
+      sudo apt update
+      sudo apt install -y \
+        clang \
+        libgtest-dev
+
+  - name: Build contract tests
+    run: |
+      clang++ tests/contracts/test_hashing_contract.cpp \
+        -o test_hashing_contract.out \
+        -lgtest \
+        -lgtest_main \
+        -pthread
+
+  - name: Run tests
+    run: |
+      ./test_hashing_contract.out
